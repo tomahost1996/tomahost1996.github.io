@@ -19,7 +19,7 @@ description  : "De mobiliteitsApp voor Gent"
 author       : Jelle Dutry & Tomas Hoste
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  jelldutr
+github_username:  tomahost1996
 colour: primary
 language: nl 
 host: 127.0.01

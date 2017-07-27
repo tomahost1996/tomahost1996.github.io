@@ -22,7 +22,7 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  tomahost1996
 colour: primary
 language: nl 
-host: 127.0.01
+host: 127.0.0.1
 port: 4000
 
 # Build settings

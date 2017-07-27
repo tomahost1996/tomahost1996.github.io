@@ -1,8 +1,11 @@
-<head>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
     <title>Moby Gent</title>
     <meta name="description" content="Moby Gent">
-    <meta name="author" content="Jelle Dutry & Tomas Hoste">
+    <meta name="author" content="Jelle Dutry &amp; Tomas Hoste">
     <meta name="copyright" content="Copyright 2003-17 Arteveldehogeschool. Alle rechten voorbehouden.">
     
     <!--Google Font Include -->
@@ -21,7 +24,7 @@
     <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
     <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -34,24 +37,57 @@
     <!-- <script src="https://use.fontawesome.com/573f5f47b9.js"></script> -->
 
     <!-- Google Maps Api Script -->
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLpBgfSlOI_tOZyeWZ83VBYcgI88qc7qo&libraries=places"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLpBgfSlOI_tOZyeWZ83VBYcgI88qc7qo&amp;libraries=places"></script>
     
 
     <!-- Mapbox JS & CSS Include -->
-    <script src='https://api.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.css" rel="stylesheet">
 
     <!-- Leafletjs Map JS & CSS Include -->
     <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js" integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg==" crossorigin=""></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ==" crossorigin=""/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ==" crossorigin="">
 
 
     <!-- Dit laadt de custom javascript voor de pagina
         het template dat gekozen wordt pas je aan in het " .md" bestand -->
-    {% if page.custom_js %}
-        {% for js_file in page.custom_js %}
-        <script src='/js/{{ js_file }}.js' type="text/javascript"></script>
-        {% endfor %}
-    {% endif %}
+    
+        
+        <script src="/js/fiets.js" type="text/javascript"></script>
+        
+    
 
 </head>
+<body>
+    <!-- Hier komt de structuur van de navigatie-header -->
+
+<!-- Kan misschien overbodig blijken, file dan verwijderen en ook de includes in andere files -->
+
+<div class="container cf">
+    <div class="verkeersInfo">
+    
+    </div>
+    <div class="mapBlock">
+        <div id="mapid">
+        </div>
+    </div>
+    <div class="blok6">
+
+    </div>
+    <div class="twitter">
+
+    </div>
+    <div class="reistijden">
+
+    </div>
+
+
+</div>
+
+<script src="js/main.js"></script>
+
+<!-- Hier komt de structuur van de footer -->
+
+
+</body>
+</html>

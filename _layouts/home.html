@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include head.html %}
+<body>
+    {% include navigation.html %}
+
+<div class="container cf clouds">
+    
+    <div class="content cf">
+        <div class="title">
+            <h1>{{ page.title }}</h1>
+        </div>
+        <div class="inputs">
+            <div class="ikWilNaar">
+                <p>Ik wil naar</p>
+                <form method="get" id="locForm">
+                    <input type="text" placeholder="Adres..." name="locat" id="goTo">
+                    <p>met de</p>
+                    <select id="vervoermiddel" name="transp">
+                        <option value="auto" selected>Auto</option>
+                        <option value="fiets">Fiets</option>
+                        <option value="ov">Openbaar Vervoer</option>
+                    </select>
+                    <input type="submit" value="Go!">
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include footer.html %}
+

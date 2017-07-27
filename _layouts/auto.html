@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include head.html %}
+<body>
+    {% include navigation.html %}
+
+<div class="container cf">
+    <div class="verkeersInfo">
+    
+    </div>
+    <div class="mapBlock">
+        <div id="mapid">
+        </div>
+    </div>
+    <div class="blok6" id="trafficdiv">
+
+    </div>
+    <div class="block" id="twitter">
+        <a class="twitter-timeline" 
+        data-lang="nl"
+        data-height="300"
+        data-chrome="nofooter noheader"
+        href="https://twitter.com/VerkeerGent">
+        Tweets by VerkeerGent</a> 
+        <script async 
+        src="//platform.twitter.com/widgets.js" 
+        charset="utf-8">
+        </script>
+
+    </div>
+    <div id="reistijden" class="block">
+        <h3>Reistijden van enkele steden</h3>
+        <div id = "stedenduur" class="cf">
+        </div>
+
+    </div>
+
+
+</div>
+
+{% include footer.html %}

@@ -1,0 +1,11 @@
+SERVER SETUP
+
+    - CMD openen,
+    - 'bash' uitvoeren
+    - naar map jelldutr.github.io navigeren
+    - 'bundle exec jekyll serve --watch' uitvoeren
+
+GIT COMMIT
+    - 'git add .'
+    - 'git commit -m "Eigen tekstje om te committen" '
+    - 'git push -u origin master'

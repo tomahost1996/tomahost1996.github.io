@@ -63,6 +63,21 @@ getJSON(urlParking,
         console.log(status);
     }
 );
+
+var urlParkinglocaties = 'https://datatank.stad.gent/4/mobiliteit/parkinglocaties.geojson';
+
+getJSON(urlParkinglocaties,
+    function(data) {
+        for (var i in data.coordinates){
+            var marker = L.marker([data.coordinates[i]["1"], data.coordinates[i]["0"]],{icon: parkingIcon}).addTo(mymap); //voegt een marker toe
+            marker.bindPopup("Parkinglocatie");
+        }            
+    },
+    function(status) {
+        console.log(status);
+    }
+);
+
 /**
  * Standaardicoon voor popup aanpassen naar nieuw icoon Parking
  */
@@ -167,7 +182,7 @@ var incidentMap = L.tileLayer('https://api.tomtom.com/traffic/map/4/tile/inciden
  */
 var overlays = {
     "Verkeersdrukte": trafficMap,
-    "Verkeersincidenten": incidentMap
+    "Verkeersincidenten": incidentMap    
 };
 
 /**

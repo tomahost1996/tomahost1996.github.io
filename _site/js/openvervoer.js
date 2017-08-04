@@ -19,7 +19,7 @@ var standardMap = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.
  * Database Import Bezetting Parking
 */ 
 
-var urlFietspunt = 'https://datatank.stad.gent/4/mobiliteit/fietsdienstverlening.geojson';//Database met bezettingsgraad van de parkings in Gent
+var urlTaxi = 'https://datatank.stad.gent/4/mobiliteit/taxilocaties.geojson';//Database met bezettingsgraad van de parkings in Gent
 
 /**
  * 
@@ -48,17 +48,18 @@ function getJSON(url, successHandler, errorHandler){
     
 }
 
-getJSON(urlFietspunt,
+getJSON(urlTaxi,
     function(data) {
         for (var i in data.coordinates){
             var marker = L.marker([data.coordinates[i]["1"], data.coordinates[i]["0"]],{icon: fietsIcon}).addTo(mymap); //voegt een marker toe
-            marker.bindPopup("Fietsen Dienstverleningspunt");
+            marker.bindPopup("Taxi's");
         }            
     },
     function(status) {
         console.log(status);
     }
 );
+
 /**
  * Standaardicoon voor popup aanpassen naar nieuw icoon Fietsvoorziening
  */
@@ -73,13 +74,13 @@ var fietsIcon = L.icon({
     popupAnchor: [0, -50] //ankerpunt popup
 });
 
-var urlBlueBikeSP = "https://datatank.stad.gent/4/mobiliteit/bluebikedeelfietsensintpieters"
+var urlCambio = '';
 
-getJSON(urlBlueBikeSP,
+getJSON(urlCambio,
     function(data) {
-        for (var i in data){
-            var marker = L.marker([data.geometry.coordinates["1"], data.geometry.coordinates["0"]],{icon: bluebikeIcon}).addTo(mymap); //voegt een marker toe
-            marker.bindPopup("<h3>Bluebike Afhaalpunt G-S-P</h3><br /> <b> Vrije fietsen: "+data.properties.attributes["2"].value+"</b>"); //voegt een popup met info toe
+        for (var i in data.coordinates){
+            var marker = L.marker([data.coordinates[i]["1"], data.coordinates[i]["0"]],{icon: fietsIcon}).addTo(mymap); //voegt een marker toe
+            marker.bindPopup("Taxi's");
         }            
     },
     function(status) {
@@ -87,33 +88,19 @@ getJSON(urlBlueBikeSP,
     }
 );
 
-var urlBlueBikeDP = "https://datatank.stad.gent/4/mobiliteit/bluebikedeelfietsendampoort"
+var urlDelijn = 'https://datatank.stad.gent/4/mobiliteit/delijnhalteslijn21';
 
-getJSON(urlBlueBikeDP,
+getJSON(urlDelijn,
     function(data) {
         for (var i in data){
-            var marker = L.marker([data.geometry.coordinates["1"], data.geometry.coordinates["0"]],{icon: bluebikeIcon}).addTo(mymap); //voegt een marker toe
-            marker.bindPopup("<h3>Bluebike Afhaalpunt Dampoort</h3><br /> <b> Vrije fietsen: "+data.properties.attributes["2"].value+"</b>"); //voegt een popup met info toe
+            var marker = L.marker([data.rtLijnRitten.rtDoortochten.coordinaat.lt[i]["1"], data.rtLijnRitten.rtDoortochten.coordinaat.ln[i]["0"]],{icon: fietsIcon}).addTo(mymap);
+            marker.bindPopup("Taxi's");
         }            
     },
     function(status) {
         console.log(status);
     }
 );
-
-/**
- * Standaardicoon voor popup aanpassen naar nieuw icoon Fietsvoorziening
- */
-var bluebikeIcon = L.icon({
-    iconUrl: 'images/bluebikeicon.png',
-    shadowUrl: 'images/parkingshadow.png',
-
-    iconSize: [25,41], //grootte van icon
-    shadowSize: [30,21], //grootte van schaduw
-    iconAnchor: [12,41], //ankerpunt icon
-    shadowAnchor: [0,21], // ankerpunt schaduw
-    popupAnchor: [0, -50] //ankerpunt popup
-});
 
 /**
  * Haalt de zoekterm van de vorige pagina uit window.name

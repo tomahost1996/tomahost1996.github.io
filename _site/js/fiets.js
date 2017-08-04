@@ -115,7 +115,6 @@ var bluebikeIcon = L.icon({
     popupAnchor: [0, -50] //ankerpunt popup
 });
 
-
 /**
  * Haalt de zoekterm van de vorige pagina uit window.name
  * google Places zoekt naar de locatie en maakt een marker op

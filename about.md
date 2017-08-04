@@ -1,8 +1,18 @@
 ---
-layout: page
+layout: default
 title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+<article class="">
 
+  <header class="">
+    <h1 class="">Over ons</h1>
+  </header>
+
+  <div class="">
+  Wij zijn een jong team van developers. We hebben deze webapplicatie gemaakt om het gemakkelijk te maken voor pendelaars om snel en eenvoudig alle info terug te vinden rond mobiliteit. 
+    
+  </div>
+
+</article>

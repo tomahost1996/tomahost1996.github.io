@@ -1,0 +1,41 @@
+---
+layout: contact
+---
+
+<!DOCTYPE html>
+<html lang="en">
+    {% include head.html %}
+<body>
+    {% include navigation.html %}
+
+<div class="center">
+    <div class="box">
+        <header class="">
+            <h1 class="">Contact</h1>
+        </header>
+
+        <div class="">
+        Indien u een fout heeft gezien of een suggestie heeft voor een nieuwe feature, laat het ons zeker weten via onderstaand contactformulier.           
+        </div>
+
+        <div class="container">
+            <form>
+                <label for="fname">Voornaam</label></br></br>
+                <input type="text" id="fname" name="firstname" placeholder="Uw naam..."></br>
+
+                <label for="lname">Familienaam</label></br>
+                <input type="text" id="lname" name="lastname" placeholder="Familienaam ..."></br>
+
+                <label for="email">E-mail</label></br>
+                <input type="text" id="email" name="email" placeholder="E-mail ..."></br>
+
+                <label for="subject">Onderwerp</label></br>
+                <textarea id="subject" name="subject" placeholder="Uw bericht ..." style="height:200px"></textarea></br>
+
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% include footer.html %}

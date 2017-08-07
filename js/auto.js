@@ -1,7 +1,7 @@
 window.onload = function() {
 
 var gent = [51.054344, 3.721660]; // Start locatie
-var zoom = 14; //Start zoom
+var zoom = 12; //Start zoom
 /**
  * Map Setup Leaflet & Mapbox
  */
@@ -78,11 +78,36 @@ getJSON(urlParkinglocaties,
     }
 );
 
+var urlVerkeersinfo = 'https://datatank.stad.gent/4/mobiliteit/verkeersberichten.json';
+
+getJSON(urlVerkeersinfo,
+    function(data) {
+        for (var i in data.geometry){
+            var marker = L.marker([data.geometry.coordinates[i]["1"], data.geometry.coordinates[i]["0"]],{icon: taxiIcon}).addTo(mymap); //voegt een marker toe
+        }
+        console.log('succes');            
+    },
+    function(status) {
+        console.log(status);
+    }
+);
+
 /**
  * Standaardicoon voor popup aanpassen naar nieuw icoon Parking
  */
 var parkingIcon = L.icon({
     iconUrl: 'images/parkingpopup.png',
+    shadowUrl: 'images/parkingshadow.png',
+
+    iconSize: [25,41], //grootte van icon
+    shadowSize: [30,21], //grootte van schaduw
+    iconAnchor: [12,41], //ankerpunt icon
+    shadowAnchor: [0,21], // ankerpunt schaduw
+    popupAnchor: [0, -50] //ankerpunt popup
+});
+
+var taxiIcon = L.icon({
+    iconUrl: 'images/taxi.png',
     shadowUrl: 'images/parkingshadow.png',
 
     iconSize: [25,41], //grootte van icon

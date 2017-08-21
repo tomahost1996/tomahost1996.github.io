@@ -1,2 +1,2 @@
-# tomahost1996.github.io
+# jelldutr.github.io
 NMDAD I project

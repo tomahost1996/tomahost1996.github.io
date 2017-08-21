@@ -39,14 +39,14 @@
     <!-- Google Maps Api Script -->
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLpBgfSlOI_tOZyeWZ83VBYcgI88qc7qo&amp;libraries=places"></script>
     
+    <!-- Leafletjs Map JS & CSS Include -->
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js" integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg==" crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ==" crossorigin="">
+
 
     <!-- Mapbox JS & CSS Include -->
     <script src="https://api.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.js"></script>
     <link href="https://api.mapbox.com/mapbox-gl-js/v0.38.0/mapbox-gl.css" rel="stylesheet">
-
-    <!-- Leafletjs Map JS & CSS Include -->
-    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js" integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg==" crossorigin=""></script>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ==" crossorigin="">
 
 
     <!-- Dit laadt de custom javascript voor de pagina
@@ -59,9 +59,12 @@
 
 </head>
 <body>
-    <!-- Hier komt de structuur van de navigatie-header -->
-
-<!-- Kan misschien overbodig blijken, file dan verwijderen en ook de includes in andere files -->
+    <header class="site-header">
+  <div class="header-bar cf">
+    <a class="button" href="#" onclick="history.go(-1); return false;">Terug</a>
+    <a class="site-title" href="/">Moby Gent - Auto</a>
+  </div>
+</header>
 
 <div class="container cf">
     <div class="verkeersInfo">
@@ -71,20 +74,24 @@
         <div id="mapid">
         </div>
     </div>
-    <div class="blok6" id="trafficdiv">
-
+    <div class="block infoblock" id="trafficdiv">
+        <h3>Legende voor de kaart</h3>
     </div>
-    <div class="block" id="twitter">
-        <a class="twitter-timeline" data-lang="nl" data-height="300" data-chrome="nofooter noheader" href="https://twitter.com/VerkeerGent">
+    <div class="block infoblock" id="twitter">
+        <a class="twitter-timeline" data-lang="nl" data-height="400" data-chrome="nofooter noheader" href="https://twitter.com/VerkeerGent">
         Tweets by VerkeerGent</a> 
         <script async src="//platform.twitter.com/widgets.js" charset="utf-8">
         </script>
 
     </div>
-    <div id="reistijden" class="block">
+    <div id="reistijden" class="block infoblock">
+        <h3>Vrije Ondergrondse parkeerplaatsen dichtbij</h3>
+        <div id="parkplaatsen" class="cf">
+        </div>
         <h3>Reistijden van enkele steden</h3>
         <div id="stedenduur" class="cf">
         </div>
+        
 
     </div>
 
@@ -92,12 +99,11 @@
 </div>
 
 <!-- Hier komt de structuur van de footer -->
-
-<nav>
-    <ul>
-        <li><a href="../about">About</a></li>
-        <li><a href="../contact">Contact</a></li>
-    </ul>
-</nav>
+<footer class="site-footer">
+    <div class="footer-bar cf">
+      <a class="button" href="../about">About</a>
+      <a class="button" href="../contact">Contact</a>
+    </div>    
+</footer>
 </body>
 </html>

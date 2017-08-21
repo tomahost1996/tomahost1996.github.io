@@ -2,6 +2,7 @@
 ---
 $background-color: #B4D6BA;
 $overlay-color: rgba(255,255,255,0.8);
+$moby-orange: #FFAB48;
 
 /* CLEARFIX*/
 .cf:before,
@@ -34,6 +35,11 @@ body {
     animation-iteration-count: infinite;
     
 
+}
+
+.container {
+    width: 90%;
+    margin: auto;
 }
 
 .content{
@@ -71,7 +77,20 @@ body {
             font-weight: 300;
             margin: 10px;
             padding: 0 10px;
+            
         }
+
+        input[type="submit"] {
+                background-color: white;
+            }
+
+        input[type="submit"]:hover {
+                background-color: $moby-orange;
+                color: white;
+                border-color: white;
+        }
+            
+
         select {
             border: 2px solid $background-color;
             border-radius: 10px;
@@ -79,6 +98,27 @@ body {
             font-weight: 300;
             margin: 10px;
             padding: 0 10px;
+        }
+    }
+
+    nav {
+        position: absolute;
+        bottom: 1vh;
+        right: 4%;
+        
+        a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.5em;
+            text-align: right;
+        }
+
+        ul :hover {
+            color: $moby-orange;
+        }
+
+        ul {
+            list-style: none;
         }
     }
 }
@@ -94,7 +134,7 @@ body {
 }
 
 .mapBlock {
-    width: 90%;
+    width: 100%;
     height: 400px;
     margin: auto;
     border: none;
@@ -108,25 +148,29 @@ body {
 }
 
 .block {
-    width: 29%;
+    width: 30%;
     min-width: 240px;
     float: left;
     margin: 10px 0;
 
 }
 
+#trafficdiv {
+    height: 400px;
+
+}
+
 #twitter {
-    height: 300px;
-    margin-left: 5%;
-
+    height: 400px;
 }
 
-#reistijden {
+.infoblock {
     background-color: white;
-    margin: 10px 2%;
+    margin: 10px 1% 10px 0;
     border-radius: 4px;
-    padding: 10px;
+    padding: 0 10px;
 }
+
 
 .rightalign {
     display: block;
@@ -140,3 +184,116 @@ body {
     margin: 0 auto;
     margin-top: 250px;
 }
+
+.site-header {
+
+    .header-bar {
+        width: 90%;
+        margin: 5px auto;
+        background-color: white;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .button {
+        text-decoration: none;
+        color: $background-color;
+        border: 2px solid $background-color;
+        border-radius: 7px;
+        font-size: 1.5em;
+        font-weight: 300;
+        padding: 5px 10px;
+        margin: 10px;
+        display: block;
+        float: left;
+
+    }
+
+    .site-title {
+        text-decoration: none;
+        color: $background-color;
+        font-size: 2em;
+        padding: 10px;
+        display: inline-block;
+        margin: 0;
+        text-transform: uppercase;
+        font-weight: bold;
+    
+    }
+
+    .button:hover {
+        text-decoration: none;
+        color: black;
+    }
+}
+
+.site-footer {
+    
+        .footer-bar {
+            width: 90%;
+            margin: 5px auto;
+            text-align: center;
+        }
+    
+        .button {
+            text-decoration: none;
+            color: white;
+            border: 2px solid white;
+            border-radius: 7px;
+            font-size: 1.5em;
+            font-weight: 300;
+            padding: 5px 10px;
+            margin: 10px;
+            margin-left: 0;
+            display: block;
+            float: left;    
+        }
+
+        .button:hover {
+            text-decoration: none;
+            color: black;
+            border: 2px solid white;  
+        }
+    }
+
+.righttextalign {
+    display: block;
+    float: right;
+}
+
+.halfblock {
+    width: 11%;
+    min-width: 160px;
+    float: left;
+    margin: 10px;
+
+}
+
+@media screen and (max-width: 968px) {
+    .block {
+    width: 47%;
+    padding: 0 1%;
+    margin: 10px 0;
+    }
+
+    #twitter {
+        float: right;
+    }
+
+    .halfblock {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .block {
+    width: 96%;
+    padding: 0 2%;
+    margin: 10px 0;
+    }
+
+    .halfblock {
+        width: 100%;
+    }
+}
+

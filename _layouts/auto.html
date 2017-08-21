@@ -2,7 +2,7 @@
 <html lang="en">
     {% include head.html %}
 <body>
-    {% include navigation.html %}
+    {% include header.html %}
 
 <div class="container cf">
     <div class="verkeersInfo">
@@ -12,13 +12,13 @@
         <div id="mapid">
         </div>
     </div>
-    <div class="blok6" id="trafficdiv">
-
+    <div class="block infoblock" id="trafficdiv">
+        <h3>Legende voor de kaart</h3>
     </div>
-    <div class="block" id="twitter">
+    <div class="block infoblock" id="twitter">
         <a class="twitter-timeline" 
         data-lang="nl"
-        data-height="300"
+        data-height="400"
         data-chrome="nofooter noheader"
         href="https://twitter.com/VerkeerGent">
         Tweets by VerkeerGent</a> 
@@ -28,10 +28,14 @@
         </script>
 
     </div>
-    <div id="reistijden" class="block">
+    <div id="reistijden" class="block infoblock">
+        <h3>Vrije Ondergrondse parkeerplaatsen dichtbij</h3>
+        <div id = "parkplaatsen" class="cf">
+        </div>
         <h3>Reistijden van enkele steden</h3>
         <div id = "stedenduur" class="cf">
         </div>
+        
 
     </div>
 

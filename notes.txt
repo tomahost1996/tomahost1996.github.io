@@ -9,3 +9,9 @@ GIT COMMIT
     - 'git add .'
     - 'git commit -m "Eigen tekstje om te committen" '
     - 'git push -u origin master'
+
+
+
+GEOLOCATION OVERRIDE
+    Lat: 51.038534
+    Long: 3.725983

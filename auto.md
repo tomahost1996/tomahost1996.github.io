@@ -4,5 +4,6 @@
 #See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 layout: auto
 custom_js: auto
+title: Auto
 
 ---

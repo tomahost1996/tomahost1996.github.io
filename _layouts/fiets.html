@@ -5,25 +5,27 @@
     {% include header.html %}
 
 <div class="container cf">
-    <div class="verkeersInfo">
-    
-    </div>
     <div class="mapBlock">
         <div id="mapid">
         </div>
     </div>
-    <div id="vrijefietsen" class="halfblock infoblock">
+
+    <div class="flexhead">
+    <div class="block infoblock flex flexleft" id="legende">
+        <h3>Legende voor de kaart</h3>
+        <ul class="legende">
+            <li id="location">Uw huidige locatie<hr></li>
+            <li id="destination">Uw eindbestemming<hr></li>
+            <li id="fietspunt">Fietsen dienstverleningspunt<hr></li>
+            <li id="bluebike">Bluebike deelfietsen Afhaalpunt<hr></li>
+        </ul>
+    </div>
+    <div id="vrijefietsen" class="block infoblock flex flexright">
         <h3>Aantal vrije Blue Bike fietsen</h3>
         <div id = "fietsen" class="cf">
-
         </div>
     </div>
-
-    <div class="reistijden">
-
     </div>
-
-
 </div>
 
 <script src="js/main.js"></script>

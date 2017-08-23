@@ -11,7 +11,7 @@ window.onload = function(){
     locForm.onsubmit = function redirect(e) {
 
         e.preventDefault();
-        window.name = locForm.locat.value;
+        document.cookie = "location =" + locForm.locat.value + ";path=/";
         window.location = locForm.transp.value;
     }
 /**

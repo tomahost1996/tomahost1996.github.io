@@ -1,7 +1,7 @@
 window.onload = function() {
 
 var gent = [51.054344, 3.721660]; // Start locatie
-var zoom = 12; //Start zoom
+var zoom = 14; //Start zoom
 /**
  * Map Setup Leaflet & Mapbox
  */
@@ -33,8 +33,8 @@ function getLocation() {
 };
 
 function showPosition(position) {
-    currentPosition = L.marker([position.coords.latitude, position.coords.longitude]).addTo(mymap);
-    currentPosition.bindPopup("Hier ben ik");
+    currentPosition = L.marker([position.coords.latitude, position.coords.longitude],{icon: locationIcon}).addTo(mymap);
+    currentPosition.bindPopup("Uw huidige locatie");
 };
 
 function showError(error) {
@@ -60,13 +60,43 @@ function showError(error) {
 getLocation();
 
 /**
- * Haalt de zoekterm van de vorige pagina uit window.name
+ * Standaardicoon voor popup aanpassen naar nieuw icoon Huidige locatie
+ */
+var locationIcon = L.icon({
+    iconUrl: 'images/huidigelocatieicon.png',
+    shadowUrl: 'images/parkingshadow.png',
+
+    iconSize: [25,41], //grootte van icon
+    shadowSize: [30,21], //grootte van schaduw
+    iconAnchor: [12,41], //ankerpunt icon
+    shadowAnchor: [0,21], // ankerpunt schaduw
+    popupAnchor: [0, -50] //ankerpunt popup
+});
+
+
+/**
+ * Haalt de zoekterm van de vorige pagina uit een cookie
  * google Places zoekt naar de locatie en maakt een marker op
  * dat bepaalde punt.
  */
+function getCookie() {
+    var name = "location=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
 
 var request = {
-    query: window.name
+    query: getCookie()
 };
 var eindLocatie = {};
 var PP = document.createElement("p"); 
@@ -77,7 +107,7 @@ service.textSearch(request, callback);
 function callback(results, status){
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
-            eindLocatie = L.marker([results[i].geometry.location.lat(), results[i].geometry.location.lng()]).addTo(mymap); //voegt een marker toe
+            eindLocatie = L.marker([results[i].geometry.location.lat(), results[i].geometry.location.lng()], {icon: bestemmingIcon}).addTo(mymap); //voegt een marker toe
             eindLocatie.bindPopup(results[i].formatted_address).openPopup; //voegt een popup toe aan de marker met de zoekterm
             mymap.setView([results[i].geometry.location.lat(), results[i].geometry.location.lng()], zoom); // centreerd de kaart op de gekozen locatie
         }
@@ -104,6 +134,20 @@ function callback(results, status){
 }
 
 window.name = ""; //Cleart window.name
+
+/**
+ * Standaardicoon voor popup aanpassen naar nieuw icoon Bestemming
+ */
+var bestemmingIcon = L.icon({
+    iconUrl: 'images/bestemmingicon.png',
+    shadowUrl: 'images/parkingshadow.png',
+
+    iconSize: [25,41], //grootte van icon
+    shadowSize: [30,21], //grootte van schaduw
+    iconAnchor: [12,41], //ankerpunt icon
+    shadowAnchor: [0,21], // ankerpunt schaduw
+    popupAnchor: [0, -50] //ankerpunt popup
+});
 
 /**
  * functie voor berekenen afstand Lat Long naar Meter
@@ -189,21 +233,7 @@ getJSON(urlParkinglocaties,
         console.log(status);
     }
 );
-/*
-DATABASE VERKEERSINFORMATE, TE GROOT, TE VEEL INFO
-var urlVerkeersinfo = 'https://datatank.stad.gent/4/mobiliteit/verkeersberichten.json';
 
-getJSON(urlVerkeersinfo,
-    function(data) {
-        for (var i in data.geometry){
-            var marker = L.marker([data.geometry.coordinates[i]["1"], data.geometry.coordinates[i]["0"]],{icon: taxiIcon}).addTo(mymap); //voegt een marker toe
-        }
-        console.log(data);            
-    },
-    function(status) {
-        console.log(status);
-    }
-);*/
 
 /**
  * Standaardicoon voor popup aanpassen naar nieuw icoon Parking

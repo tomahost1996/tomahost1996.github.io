@@ -7,6 +7,7 @@
     <meta name="description" content="Moby Gent">
     <meta name="author" content="Jelle Dutry &amp; Tomas Hoste">
     <meta name="copyright" content="Copyright 2003-17 Arteveldehogeschool. Alle rechten voorbehouden.">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     
     <!--Google Font Include -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
@@ -57,24 +58,28 @@
 <body>
     <header class="site-header">
   <div class="header-bar cf">
-    <a class="button" href="/">Terug</a>
+    <a class="button" href="#" onclick="history.go(-1); return false;">Terug</a>
     <a class="site-title" href="/">Moby Gent - About</a>
   </div>
 </header>
 
-<div class="center">
-    <div class="box">
-        <header class="">
+<div class="cf clouds">
+    <div class="contentClean cf">
+        <header class="title">
             <h1 class="">Over ons</h1>
         </header>
-        <div class="">
-        Wij zijn een jong team van developers. We hebben deze webapplicatie gemaakt om het gemakkelijk te maken voor pendelaars om snel en eenvoudig alle info terug te vinden rond mobiliteit.            
+        <div class="centerblock">
+        <p>Hola!<br><br>Wij zijn een jong team developers die genoeg hadden van het Gentse verkeer. 
+        Maar aangezien wij niks kunnen veranderen aan het weer bedachten we een andere mogelijkheid.
+        Moby Gent, een verzamelplaats voor alle informatie over het huidige verkeer in en rond Gent.
+        <br>We hopen dan ook dat er ook maar 1 iemand vijf minuten sneller op zijn eindbestemming geraakt
+        door Moby Gent.<br><br>Groeten Tomas &amp; Jelle</p>     
         </div>
+    
     </div>
 </div>
-
 <!-- Hier komt de structuur van de footer -->
-<footer class="site-footer">
+<footer class="site-footer aboutcontactnav">
     <div class="footer-bar cf">
       <a class="button" href="../about">About</a>
       <a class="button" href="../contact">Contact</a>

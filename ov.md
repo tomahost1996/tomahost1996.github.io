@@ -4,5 +4,6 @@
 #See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 layout: openvervoer
 custom_js: openvervoer
+title: Openbaar vervoer
 
 ---

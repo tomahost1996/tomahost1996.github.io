@@ -5,17 +5,23 @@
     {% include header.html %}
 
 <div class="container cf">
-    <div class="verkeersInfo">
-    
-    </div>
     <div class="mapBlock">
         <div id="mapid">
         </div>
     </div>
-    <div class="block infoblock" id="trafficdiv">
+    <div class="flexhead">
+    <div class="block infoblock flex flexleft" id="legende">
         <h3>Legende voor de kaart</h3>
+        <ul class="legende">
+            <li id="location">Uw huidige locatie<hr></li>
+            <li id="destination">Uw eindbestemming<hr></li>
+            <li id="garage">Parkeergarage met realtime plaatsen<hr></li>
+            <li id="parking">Parkeerlocatie<hr></li>
+            <li id="parkeerautom">Parkeerautomaat, wordt zichtbaar als je inzoomt<hr></li>
+        </ul>
     </div>
-    <div class="block infoblock" id="twitter">
+    
+    <div id="twitter" class="block infoblock flex flexcenter">
         <a class="twitter-timeline" 
         data-lang="nl"
         data-height="400"
@@ -28,18 +34,15 @@
         </script>
 
     </div>
-    <div id="reistijden" class="block infoblock">
+    <div id="reistijden" class="block infoblock flex flexright right1">
         <h3>Vrije Ondergrondse parkeerplaatsen dichtbij</h3>
         <div id = "parkplaatsen" class="cf">
         </div>
         <h3>Reistijden van enkele steden</h3>
         <div id = "stedenduur" class="cf">
         </div>
-        
-
     </div>
-
-
+</div>
 </div>
 
 {% include footer.html %}

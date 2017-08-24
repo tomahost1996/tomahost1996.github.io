@@ -133,8 +133,6 @@ function callback(results, status){
     document.getElementById('parkplaatsen').appendChild(PP);
 }
 
-window.name = ""; //Cleart window.name
-
 /**
  * Standaardicoon voor popup aanpassen naar nieuw icoon Bestemming
  */

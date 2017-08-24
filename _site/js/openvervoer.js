@@ -111,9 +111,35 @@ function callback(results, status){
             mymap.setView([results[i].geometry.location.lat(), results[i].geometry.location.lng()], zoom); // centreerd de kaart op de gekozen locatie
         }
     }
+    var haltesObj = {};
+    var haltes = {};
+
+    for (var r in urlObjDeLijn){
+        getJSON(urlObjDeLijn[r],
+            function(data) {
+                    for (var t in data.rtLijnRitten[0].rtDoortochten){
+                        if (data.rtLijnRitten[0].rtDoortochten[t*2] != undefined){
+                            if (distanceLatLonM(data.rtLijnRitten[0].rtDoortochten[t*2].coordinaat.lt, data.rtLijnRitten[0].rtDoortochten[t*2].coordinaat.ln, currentPosition._latlng.lat, currentPosition._latlng.lng)<500 ||
+                            distanceLatLonM(data.rtLijnRitten[0].rtDoortochten[t*2].coordinaat.lt, data.rtLijnRitten[0].rtDoortochten[t*2].coordinaat.ln, eindLocatie._latlng.lat, eindLocatie._latlng.lng)<500){ //Enkel de haltes binnen een straal van 500m van huidige- en eindlocatie worden getoond
+
+                                L.circle([currentPosition._latlng.lat, currentPosition._latlng.lng], {radius: 500, fill: false, weight: 1}).addTo(mymap);
+                                L.circle([eindLocatie._latlng.lat, eindLocatie._latlng.lng], {radius: 500, fill: false, weight: 1}).addTo(mymap);
+
+                                haltes = L.marker([data.rtLijnRitten[0].rtDoortochten[t*2].coordinaat.lt, data.rtLijnRitten[0].rtDoortochten[t*2].coordinaat.ln],{icon: tramIcon}).addTo(mymap);
+                                haltesObj[data.rtLijnRitten[0].rtDoortochten[t*2].halteNummer] = haltesObj[data.rtLijnRitten[0].rtDoortochten[t*2].halteNummer] + ", " + data.lijnNummerPubliek;
+                                haltesObj[data.rtLijnRitten[0].rtDoortochten[t*2].halteNummer] = haltesObj[data.rtLijnRitten[0].rtDoortochten[t*2].halteNummer].replace('undefined, ', "");
+                                haltes.bindPopup("<b>" + data.rtLijnRitten[0].rtDoortochten[t*2].omschrijvingLang + "</b></br>Lijn(en): " + haltesObj[data.rtLijnRitten[0].rtDoortochten[t*2].halteNummer]);
+                            }
+                        }
+                    }
+            },
+            function(status) {
+                console.log(status);
+            }
+        );
+    };
 }
 
-window.name = ""; //Cleart window.name
 
 /**
  * Standaardicoon voor popup aanpassen naar nieuw icoon Bestemming
@@ -228,33 +254,7 @@ var urlObjDeLijn = {
     78: "https://datatank.stad.gent/4/mobiliteit/delijnhalteslijn78"
 };
 
-var haltesObj = {};
-var haltes = {};
 
-for (var r in urlObjDeLijn){
-    getJSON(urlObjDeLijn[r],
-        function(data) {
-                for (var t in data.rtLijnRitten[0].rtDoortochten){
-                    if (data.rtLijnRitten[0].rtDoortochten[t*2] != undefined){
-                        if (distanceLatLonM(data.rtLijnRitten[0].rtDoortochten[t*2].coordinaat.lt, data.rtLijnRitten[0].rtDoortochten[t*2].coordinaat.ln, currentPosition._latlng.lat, currentPosition._latlng.lng)<500 ||
-                        distanceLatLonM(data.rtLijnRitten[0].rtDoortochten[t*2].coordinaat.lt, data.rtLijnRitten[0].rtDoortochten[t*2].coordinaat.ln, eindLocatie._latlng.lat, eindLocatie._latlng.lng)<500){ //Enkel de haltes binnen een straal van 500m van huidige- en eindlocatie worden getoond
-
-                            L.circle([currentPosition._latlng.lat, currentPosition._latlng.lng], {radius: 500, fill: false, weight: 1}).addTo(mymap);
-                            L.circle([eindLocatie._latlng.lat, eindLocatie._latlng.lng], {radius: 500, fill: false, weight: 1}).addTo(mymap);
-
-                            haltes = L.marker([data.rtLijnRitten[0].rtDoortochten[t*2].coordinaat.lt, data.rtLijnRitten[0].rtDoortochten[t*2].coordinaat.ln],{icon: tramIcon}).addTo(mymap);
-                            haltesObj[data.rtLijnRitten[0].rtDoortochten[t*2].halteNummer] = haltesObj[data.rtLijnRitten[0].rtDoortochten[t*2].halteNummer] + ", " + data.lijnNummerPubliek;
-                            haltesObj[data.rtLijnRitten[0].rtDoortochten[t*2].halteNummer] = haltesObj[data.rtLijnRitten[0].rtDoortochten[t*2].halteNummer].replace('undefined, ', "");
-                            haltes.bindPopup("<b>" + data.rtLijnRitten[0].rtDoortochten[t*2].omschrijvingLang + "</b></br>Lijn(en): " + haltesObj[data.rtLijnRitten[0].rtDoortochten[t*2].halteNummer]);
-                        }
-                    }
-                }
-        },
-        function(status) {
-            console.log(status);
-        }
-    );
-};
 
 /**
  * Standaardicoon voor popup aanpassen naar nieuw icoon Halte

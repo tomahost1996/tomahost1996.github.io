@@ -116,8 +116,6 @@ function callback(results, status){
     }
 }
 
-window.name = ""; //Cleart window.name
-
 /**
  * Standaardicoon voor popup aanpassen naar nieuw icoon Bestemming
  */

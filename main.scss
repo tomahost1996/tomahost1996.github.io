@@ -33,13 +33,25 @@ body {
     animation-duration: 60s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
-    
-
 }
 
 .container {
     width: 90%;
     margin: auto;
+}
+
+.flexhead {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    .flex {
+        flex: 1;
+    }
+
+    .flexright {
+        margin-right: 0;
+    }
 }
 
 .content{
@@ -60,7 +72,7 @@ body {
 
     }
 
-    p {
+    .inputs p {
         display: inline-block;
         font-weight: 300;
         margin: 10px 0;
@@ -123,9 +135,42 @@ body {
     }
 }
 
+.contentClean{
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;    
+
+    .title {
+        color: $overlay-color;
+        font-size: 3em;
+        text-transform: uppercase;
+
+    }   
+
+    nav {
+        position: absolute;
+        bottom: 1vh;
+        right: 4%;
+        
+        a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.5em;
+            text-align: right;
+        }
+
+        ul :hover {
+            color: $moby-orange;
+        }
+
+        ul {
+            list-style: none;
+        }
+    }
+}
+
 .inputs {
     display: inline-block;
-    /*width: 300px;*/
     padding: 20px;
     background-color: $overlay-color;
     border-radius: 5px;
@@ -148,20 +193,10 @@ body {
 }
 
 .block {
-    width: 30%;
+    width: 33%;
     min-width: 240px;
     float: left;
     margin: 10px 0;
-
-}
-
-#trafficdiv {
-    height: 400px;
-
-}
-
-#twitter {
-    height: 400px;
 }
 
 .infoblock {
@@ -170,7 +205,6 @@ body {
     border-radius: 4px;
     padding: 0 10px;
 }
-
 
 .rightalign {
     display: block;
@@ -233,7 +267,10 @@ body {
             width: 90%;
             margin: 5px auto;
             text-align: center;
-        }
+            position: static;
+            bottom: 1vh;
+            right: 5%;
+            }        
     
         .button {
             text-decoration: none;
@@ -261,39 +298,160 @@ body {
     float: right;
 }
 
-.halfblock {
-    width: 11%;
-    min-width: 160px;
-    float: left;
-    margin: 10px;
+
+
+@media screen and (max-width: 968px) {
+    .site-header .button {
+        margin: 10px 0 10px 5px;
+        font-size: 1em;
+    }
+    
+    .site-header .site-title {
+        margin: 2px 0 0 0;
+    }
+}
+
+@media screen and (max-width: 876px) {
+    .flexcenter {
+        margin-right: 0;
+    }  
+    
+    .site-header .button {
+        margin: 10px 0 10px 8px;
+    }
+    
+    .site-header .site-title {
+        font-size: 1.2em;
+        margin: 3px 0 0 0;
+    }
+
+    .content {
+        font-size: 1em;
+    }
+
+    form input{
+        width: 50%
+    }
+
+    form select{
+        width: 50%
+    }
+
+    .content nav {
+        position: absolute;
+        top: 2vh;
+        right: 10%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .flexleft {
+        margin-right: 0;
+    }
+}
+
+.legende {
+    list-style: none;
+    line-height: 2em;
+
+    #location {
+        list-style-image: url("images/huidigelocatieicon.png");
+        padding-left: 10px;
+    }
+
+    #destination {
+        list-style-image: url("images/bestemmingicon.png");
+        padding-left: 10px;
+    }
+
+    #garage {
+        list-style-image: url("images/parkingpopup.png");
+        padding-left: 10px;
+    }
+
+    #parking {
+        list-style-image: url("images/parkingsmall.png");
+        padding-left: 10px;
+    }
+
+    #parkeerautom {
+        list-style-image: url("images/parkautom.png");
+        padding-left: 10px;
+    }
+
+    #fietspunt {
+        list-style-image: url("images/fietsicon.png");
+        padding-left: 10px;
+    }
+
+    #bluebike {
+        list-style-image: url("images/bluebikeicon.png");
+        padding-left: 10px;
+    }
+
+    #taxi {
+        list-style-image: url("images/taxi.png");
+        padding-left: 10px;
+    }
+
+    #halte {
+        list-style-image: url("images/halte.png");
+        padding-left: 10px;
+    }
+    
+}
+
+.centerblock {
+    width: 40%;
+    margin: auto;
+    background-color: $overlay-color;
+    border-radius: 7px;
+    padding: 10px;
+    line-height: 1.7em;
+    text-align: left;
+
+    textarea {
+        font-family: 'Montserrat', sans-serif;
+        border: 2px solid $background-color;
+        border-radius: 10px;
+        font-size: 1em;
+        width: 80%;
+        margin: 10px auto;
+        padding: 0 10px;
+        display: block;
+    }
+}
+
+.contactlist {
+    list-style: none;
+    padding: 0;
+
+    p {
+        margin: 0;
+        padding: 0 0 30px 0;
+    }
+    h4 {
+        margin: 0;
+    }
 
 }
 
-@media screen and (max-width: 968px) {
-    .block {
-    width: 47%;
-    padding: 0 1%;
-    margin: 10px 0;
-    }
-
-    #twitter {
-        float: right;
-    }
-
-    .halfblock {
-        width: 100%;
-    }
+.contentClean .title {
+    color: $overlay-color;
+    font-size: 3em;
+    text-transform: uppercase;
+    text-align: center;
 }
 
 @media screen and (max-width: 767px) {
-    .block {
-    width: 96%;
-    padding: 0 2%;
-    margin: 10px 0;
+    .centerblock {
+        width: 90%
+    }
+    .aboutcontactnav {
+        position: static;
     }
 
-    .halfblock {
-        width: 100%;
+    .contentClean .title {
+        font-size: 2em;
     }
 }
-

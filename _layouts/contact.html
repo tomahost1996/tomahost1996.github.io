@@ -8,34 +8,23 @@ layout: contact
 <body>
     {% include header.html %}
 
-<div class="center">
-    <div class="box">
-        <header class="">
+<div class="cf clouds">
+    <div class="contentClean cf">
+        <header class="title">
             <h1 class="">Contact</h1>
         </header>
 
-        <div class="">
-        Indien u een fout heeft gezien of een suggestie heeft voor een nieuwe feature, laat het ons zeker weten via onderstaand contactformulier.           
-        </div>
-
-        <div class="container">
-            <form>
-                <label for="fname">Voornaam</label></br></br>
-                <input type="text" id="fname" name="firstname" placeholder="Uw naam..."></br>
-
-                <label for="lname">Familienaam</label></br>
-                <input type="text" id="lname" name="lastname" placeholder="Familienaam ..."></br>
-
-                <label for="email">E-mail</label></br>
-                <input type="text" id="email" name="email" placeholder="E-mail ..."></br>
-
-                <label for="subject">Onderwerp</label></br>
-                <textarea id="subject" name="subject" placeholder="Uw bericht ..." style="height:200px"></textarea></br>
-
-                <input type="submit" value="Submit">
-            </form>
-        </div>
+        <div class="cf centerblock">
+            <p>Een fout ontdekt? Een functie die je graag zou zien? Of wil je gewoon eens goeiendag zeggen? Holla at ya boys!</p>
+            <ul class="contactlist">
+                <li><h4>Onze namen</h4><p>Tomas Hoste & Jelle Dutry</p></li>
+                <li><h4>Email</h4><p>info@mobygent.be</p></li>
+                <li><h4>Telefoon</h4><p>0412 34 56 78</p></li>
+                <li><h4>Address</h4><p>Walvisstraat 24 9000 Gent</p></li>
+            </ul>            
+        </div>    
     </div>
 </div>
-
 {% include footer.html %}
+</body>
+</html>

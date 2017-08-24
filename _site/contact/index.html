@@ -7,6 +7,7 @@
     <meta name="description" content="Moby Gent">
     <meta name="author" content="Jelle Dutry &amp; Tomas Hoste">
     <meta name="copyright" content="Copyright 2003-17 Arteveldehogeschool. Alle rechten voorbehouden.">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     
     <!--Google Font Include -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700" rel="stylesheet">
@@ -57,43 +58,42 @@
 <body>
     <header class="site-header">
   <div class="header-bar cf">
-    <a class="button" href="/">Terug</a>
+    <a class="button" href="#" onclick="history.go(-1); return false;">Terug</a>
     <a class="site-title" href="/">Moby Gent - Contact</a>
   </div>
 </header>
 
-<div class="center">
-    <div class="box">
-        <header class="">
+<div class="cf clouds">
+    <div class="contentClean cf">
+        <header class="title">
             <h1 class="">Contact</h1>
         </header>
 
-        <div class="">
-        Indien u een fout heeft gezien of een suggestie heeft voor een nieuwe feature, laat het ons zeker weten via onderstaand contactformulier.           
-        </div>
-
-        <div class="container">
-            <form>
-                <label for="fname">Voornaam</label>
-                <input type="text" id="fname" name="firstname" placeholder="Uw naam...">
-
-                <label for="lname">Familienaam</label>
-                <input type="text" id="lname" name="lastname" placeholder="Familienaam ...">
-
-                <label for="email">E-mail</label>
-                <input type="text" id="email" name="email" placeholder="E-mail ...">
-
-                <label for="subject">Onderwerp</label>
-                <textarea id="subject" name="subject" placeholder="Uw bericht ..." style="height:200px"></textarea>
-
-                <input type="submit" value="Submit">
-            </form>
-        </div>
+        <div class="cf centerblock">
+            <p>Een fout ontdekt? Een functie die je graag zou zien? Of wil je gewoon eens goeiendag zeggen? Holla at ya boys!</p>
+            <ul class="contactlist">
+                <li>
+<h4>Onze namen</h4>
+<p>Tomas Hoste &amp; Jelle Dutry</p>
+</li>
+                <li>
+<h4>Email</h4>
+<p>info@mobygent.be</p>
+</li>
+                <li>
+<h4>Telefoon</h4>
+<p>0412 34 56 78</p>
+</li>
+                <li>
+<h4>Address</h4>
+<p>Walvisstraat 24 9000 Gent</p>
+</li>
+            </ul>            
+        </div>    
     </div>
 </div>
-
 <!-- Hier komt de structuur van de footer -->
-<footer class="site-footer">
+<footer class="site-footer aboutcontactnav">
     <div class="footer-bar cf">
       <a class="button" href="../about">About</a>
       <a class="button" href="../contact">Contact</a>

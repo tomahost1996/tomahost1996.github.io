@@ -28,7 +28,7 @@ port: 4000
 # Build settings
 markdown: kramdown
 theme: minima
-gems:
+plugins:
   - jekyll-feed
   - jekyll-gist
   - jekyll-mentions
